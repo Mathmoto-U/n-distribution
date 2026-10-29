@@ -31,9 +31,45 @@ CUSTOM_CSS = """
         display: none !important;
     }
     .block-container {
-        padding-top: 1.2rem !important;
-        padding-bottom: 1.5rem !important;
+       <style>
+    /* 1. Streamlit標準の上部ヘッダーとサイドバーを非表示にする（上部の見切れ防止） */
+    header[data-testid="stHeader"],
+    [data-testid="stDecoration"],
+    [data-testid="stSidebar"],
+    [data-testid="collapsedControl"] {
+        display: none !important;
+    }
+
+    /* 2. ページ全体の縦・横スクロールを確実に有効化する */
+    html, body, .stApp,
+    [data-testid="stAppViewContainer"],
+    [data-testid="stMain"],
+    section.main {
+        overflow-y: auto !important;
+        overflow-x: auto !important;
+        height: auto !important;
+        min-height: 100vh !important;
+    }
+
+    /* 3. 上下の余白調整（上が見切れないよう padding-top を確保） */
+    .block-container {
+        padding-top: 2.5rem !important;
+        padding-bottom: 3rem !important;
+        padding-left: 2rem !important;
+        padding-right: 2rem !important;
         max-width: 1400px !important;
+    }
+
+    /* 4. PCの横画面（左：標本、右：ヒストグラム）を強制維持 */
+    [data-testid="stHorizontalBlock"] {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: flex-start !important;
+    }
+    [data-testid="column"] {
+        min-width: 0 !important;
+    }
     }
 
     /* PCのような横画面（左：標本、右：ヒストグラム）を強制維持 */
