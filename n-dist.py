@@ -18,8 +18,7 @@ import streamlit as st
 # 1. ページ設定 & カスタムCSS（Web版のUI・10×10グリッドを忠実に再現）
 # ============================================================================
 st.set_page_config(
-    page_title="標本平均の正規分布収束シミュレーター",
-    page_icon="📊",
+    page_title="中心極限定理シミュレーター",
     layout="wide",
     initial_sidebar_state="collapsed",
 )
